@@ -16,3 +16,15 @@ func Reverse(s string) string {
 func WordCount(s string) int {
 	return len(strings.Fields(s))
 }
+
+// Truncate returns the first n runes of s. If s has <= n runes it is returned unchanged. If n < 0 it returns "".
+func Truncate(s string, n int) string {
+	if n < 0 {
+		return ""
+	}
+	r := []rune(s)
+	if n >= len(r) {
+		return s
+	}
+	return string(r[:n])
+}
