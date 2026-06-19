@@ -28,3 +28,15 @@ func Truncate(s string, n int) string {
 	}
 	return string(r[:n])
 }
+
+// Pad right-pads s with spaces to length n runes. If s already has >= n runes, or n <= 0, s is returned unchanged.
+func Pad(s string, n int) string {
+	if n <= 0 {
+		return s
+	}
+	rc := len([]rune(s))
+	if rc >= n {
+		return s
+	}
+	return s + strings.Repeat(" ", n-rc)
+}
